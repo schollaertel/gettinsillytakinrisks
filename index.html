@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Clock MVP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Score Clock MVP</h1>
+
+    <div class="view-selector">
+        <button id="showScorekeeper">Scorekeeper View</button>
+        <button id="showViewer">Viewer View</button>
+    </div>
+
+    <div id="scoreboard">
+        <div class="team home">
+            <h2>HOME</h2>
+            <div id="homeScore" class="score">0</div>
+            <div class="controls scorekeeper-only">
+                <button id="homeIncrease">+</button>
+                <button id="homeDecrease">-</button>
+            </div>
+        </div>
+
+        <div class="game-info">
+            <div class="period">
+                <h3>Period</h3>
+                <div id="period" class="value">1</div>
+                <div class="controls scorekeeper-only">
+                    <button id="periodIncrease">+</button>
+                    <button id="periodDecrease">-</button>
+                </div>
+            </div>
+            <div id="clock" class="clock-display">0:00</div>
+            <div class="controls scorekeeper-only clock-controls">
+                <input type="number" id="setMinutes" min="0" max="99" placeholder="Min"> :
+                <input type="number" id="setSeconds" min="0" max="59" placeholder="Sec">
+                <button id="setClock">Set Clock</button>
+                <button id="playPause">Play</button>
+            </div>
+        </div>
+
+        <div class="team away">
+            <h2>AWAY</h2>
+            <div id="awayScore" class="score">0</div>
+            <div class="controls scorekeeper-only">
+                <button id="awayIncrease">+</button>
+                <button id="awayDecrease">-</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Penalty Input Section (Scorekeeper Only) -->
+    <div class="penalty-input scorekeeper-only">
+        <h3>Add Penalty</h3>
+        <select id="penaltyTeam">
+            <option value="Home">Home</option>
+            <option value="Away">Away</option>
+        </select>
+        <input type="number" id="penaltyPlayerNum" placeholder="Player #" min="0">
+        <input type="number" id="penaltyMinutes" min="0" max="59" placeholder="Min"> :
+        <input type="number" id="penaltySeconds" min="0" max="59" placeholder="Sec">
+        <button id="addPenalty">Add Penalty</button>
+    </div>
+
+    <!-- Penalty Display Section -->
+    <div id="penaltyList" class="penalty-list">
+        <h3>Active Penalties</h3>
+        <!-- Penalty items will be added here by JavaScript -->
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
